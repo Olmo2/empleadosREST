@@ -107,6 +107,13 @@ public class Direccion {
 	public void setDepartamentos(List<Departamento> departamentos) {
 		this.departamentos = departamentos;
 	}
+
+	@Override
+	public String toString() {
+		return "Calle=" + calle + ", Código Postal=" + cp + ", Ciudad=" + ciudad + ", Provincia="
+				
+				+ provincia + ", Pais=" + pais ;
+	}
 	
 	
 	

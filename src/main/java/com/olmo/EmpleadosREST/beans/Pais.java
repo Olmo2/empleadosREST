@@ -63,6 +63,13 @@ public class Pais {
 	public void setDirecciones(List<Direccion> direcciones) {
 		this.direcciones = direcciones;
 	}
+
+
+	@Override
+	public String toString() {
+		return  nombre ;
+	}
+	
 	
 	
 }

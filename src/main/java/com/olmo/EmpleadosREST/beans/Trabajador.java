@@ -39,6 +39,8 @@ public class Trabajador {
 	@ManyToOne
 	@JsonBackReference
 	Departamento dept = new Departamento();
+	
+	
 
 	
 	

@@ -75,4 +75,11 @@ public class Departamento {
 		this.trabajadores = trabajadores;
 	}
 
+	@Override
+	public String toString() {
+		return "Nombre=" + nombre ;
+	}
+	
+	
+
 }
