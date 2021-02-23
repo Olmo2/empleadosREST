@@ -1,13 +1,19 @@
 package com.olmo.EmpleadosREST.negocio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -73,6 +79,47 @@ public class Rutas {
 		mav.setViewName("departamentos");
 
 		return mav;
+	}
+	
+	@GetMapping("/departamento")
+	public ModelAndView departamentoForm() {
+		/* Creo el Model And View */
+		ModelAndView mav = new ModelAndView();
+		/* Creo la lista de departamentos */
+		List<Departamento> depts = (List<Departamento>) deptDAO.findAll();
+		/* añado la lista y un objeto departamento para luego iterar con el */
+		mav.addObject("depts", depts);
+		mav.addObject("dept", new Departamento());
+		
+		List<Direccion> dirs = (List<Direccion>) direccionDAO.findAll();
+		/* añado la lista y un objeto departamento para luego iterar con el */
+		mav.addObject("dirs", dirs);
+		mav.addObject("dir", new Direccion());
+		
+		/* Creo la lista de trabajadores */
+		List<Trabajador> trabajadores = (List<Trabajador>) trabajadorDAO.findAll();
+		/* añado la lista y un objeto trabajador para luego iterar con el */
+		mav.addObject("trabajadores", trabajadores);
+		mav.addObject("trabajador", new Trabajador());
+		
+		
+
+		/* Defino el nombre de la vista */
+		mav.setViewName("departamentoAnadir");
+
+		return mav;
+	}
+		
+	
+	
+	@PostMapping("/departamento/anadir")
+	public void addDepartamento(@ModelAttribute Departamento dept,HttpServletResponse response) throws IOException {
+		List<Departamento> depts = (List<Departamento>) deptDAO.findAll();
+		dept.setId(depts.size());
+		deptDAO.save(dept);
+		
+		response.sendRedirect( "/departamentos");
+		
 	}
 
 	/* DIRECCIONES */
