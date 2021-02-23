@@ -24,6 +24,9 @@
             <tr th:each="dept: ${depts}">
                 <td>
                     <a style="text-decoration: none;" th:text="${dept.id}" th:href="@{'/departamento/' + ${dept.id}}"></a>
+                    <button type="button" class="btn btn-danger"> 
+                        <a style="text-decoration: none;" th:href="@{'/departamento/borrar/' + ${dept.id}}">Borrar</a>
+                    </button>
                 </td>
                 <td>
                     <a th:text="${dept.nombre}"></a>

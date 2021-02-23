@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -117,6 +118,16 @@ public class Rutas {
 		List<Departamento> depts = (List<Departamento>) deptDAO.findAll();
 		dept.setId(depts.size());
 		deptDAO.save(dept);
+		
+		response.sendRedirect( "/departamentos");
+		
+	}
+	
+	@GetMapping("/departamento/borrar/{id}")
+	public void deleteDepartamento(@PathVariable Integer id,HttpServletResponse response) throws IOException {
+		
+		
+		deptDAO.deleteById(id);
 		
 		response.sendRedirect( "/departamentos");
 		
