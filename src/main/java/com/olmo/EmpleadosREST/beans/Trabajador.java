@@ -40,12 +40,6 @@ public class Trabajador {
 	@JsonBackReference
 	Departamento dept = new Departamento();
 	
-	
-
-	
-	
-	
-
 	public Trabajador() {
 		super();
 	}

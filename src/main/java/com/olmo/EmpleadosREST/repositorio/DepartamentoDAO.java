@@ -8,4 +8,6 @@ import com.olmo.EmpleadosREST.beans.Departamento;
 @Repository
 public interface DepartamentoDAO extends CrudRepository<Departamento, Integer> {
 
+	
+	
 }

@@ -1,5 +1,6 @@
 package com.olmo.EmpleadosREST.beans;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class Departamento {
 			trabajadores.add(trabajador);
 		}
 	}
+
 
 	public Integer getId() {
 		return id;
