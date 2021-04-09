@@ -1,0 +1,57 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="../icon.jpeg" />
+    <title>Direccion</title>
+</head>
+
+<body class="container d-flex bg-dark">
+    <table class="table table-dark table-striped align-self-center">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Calle</th>
+                <th scope="col">Código Postal</th>
+                <th scope="col">Provincia</th>
+                <th scope="col"> <a style="text-decoration: none;" th:href="@{/paises}">Pais</a></th>
+                <th scope="col"> <a style="text-decoration: none;" th:href="@{/departamentos}">Departamentos</a></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:object="${dir}">
+                <td>
+                    <a th:text="${dir.id}"></a>
+                </td>
+                <td>
+                    <a th:text="${dir.calle}"></a>
+                </td>
+                <td>
+                    <a th:text="${dir.cp}"></a>
+                </td>
+                <td>
+                    <a th:text="${dir.provincia}"></a>
+                </td>
+                <td>
+                    <a th:text="${dir.pais.nombre}"></a>
+                </td>
+                <td>
+                    <ul class="" style="list-style-type: none;" th:each="dept: ${dir.departamentos}">
+                        <li class="" th:text="${dept.nombre}"></li>
+
+                    </ul>
+
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</body>
+
+</html>

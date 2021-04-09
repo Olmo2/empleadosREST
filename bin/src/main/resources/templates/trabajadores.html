@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trabajadores</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body class="container d-flex bg-dark">
+    <table class="table table-dark table-striped align-self-center">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Email</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Fecha de alta</th>
+                <th scope="col"> <a style="text-decoration: none;" th:href="@{/trabajos}">Trabajos</a></th>
+                <th scope="col"><a style="text-decoration: none;" th:href="@{/departamentos}">Departamentos</a></th>
+                <!-- <th scope="col">Trabajadores</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="trabajador: ${trabajadores}">
+                <td>
+                    <a style="text-decoration: none;" th:text="${trabajador.id}" th:href="@{'/trabajador/' + ${trabajador.id}}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.nombre}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.apellidos}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.email}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.tlf}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.fecha_alta}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.trabajo.nombre}"></a>
+                </td>
+                <td>
+                    <a th:text="${trabajador.dept.nombre}"></a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

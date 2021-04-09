@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="../icon.jpeg" />
+    <title>Paises</title>
+</head>
+
+<body class="container d-flex bg-dark">
+    <table class="table table-dark table-striped align-self-center">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col"> <a style="text-decoration: none;" th:href="@{/direcciones}">Direcciones</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pais: ${paises}">
+                <td>
+                    <a style="text-decoration: none;" th:text="${pais.id}" th:href="@{'/pais/' + ${pais.id}}"></a>
+                </td>
+                <td>
+                    <a th:text="${pais.nombre}"></a>
+                </td>
+                <td>
+                    <ul class="" style="list-style-type: none;" th:each="dir: ${pais.direcciones}">
+                        <li class="" th:text="${dir.calle}"></li>
+
+                    </ul>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

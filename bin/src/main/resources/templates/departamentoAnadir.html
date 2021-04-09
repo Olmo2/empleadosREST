@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" id="crear" th:action="@{/departamento/anadir}" th:object="${dept}" method="post">
+
+        <div class="form-group col-md-12">
+            <label for="texto">Nombre</label>
+            <input type="text" required th:field="*{nombre}" placeholder="inserta un texto" class="form-control" id="texto">
+        </div>
+
+        <div class="form-group col-12">
+            <label>Direccion</label> <span class="text-danger"></span>
+            <ul>
+                <li th:each="dir: ${dirs}" class="form-check">
+                    <label class="form-check-label mr-1">
+                         <input type="radio"
+                            class="form-check-input"
+                             th:id="${dir.id}"
+                            th:text="${dir.calle}"
+                             th:field="*{dir.id}"
+                            th:value="${dir.id}">
+                    </label></li>
+            </ul>
+        </div>
+
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+
+</html>

@@ -57,6 +57,13 @@ public class ServiceDTO {
 		return new DepartamentoDTO(deptDAO.findById(id).orElse(null));
 		
 	}
+	
+	@Transactional
+	public void deleteDeptById(Integer id){
+		
+		deptDAO.deleteById(id);
+		
+	}
 	/*DIRECCION*/
 	@Transactional
 	public List<DireccionDTO> findAllDir() {
@@ -73,6 +80,13 @@ public class ServiceDTO {
 	public DireccionDTO findDirById(Integer id){
 		
 		return new DireccionDTO(dirDAO.findById(id).orElse(null));
+		
+	}
+	
+	@Transactional
+	public void deleteDirById(Integer id){
+		
+		dirDAO.deleteById(id);
 		
 	}
 	
@@ -95,6 +109,14 @@ public class ServiceDTO {
 		
 	}
 	
+	@Transactional
+	public void deletePaisById(String id){
+		
+		
+		paisDAO.deleteById(id);
+		
+	}
+	
 	/*TRABAJADOR*/
 	@Transactional
 	public List<TrabajadorDTO> findAllTrabajador() {
@@ -111,6 +133,12 @@ public class ServiceDTO {
 	public TrabajadorDTO findTrabajadorById(Integer id){
 		
 		return new TrabajadorDTO(trabajadorDAO.findById(id).orElse(null));
+		
+	}
+	@Transactional
+	public void deleteTrabajadorById(Integer id){
+		
+		trabajadorDAO.deleteById(id);
 		
 	}
 	
@@ -130,6 +158,13 @@ public class ServiceDTO {
 	public TrabajoDTO findTrabajoById(Integer id){
 		
 		return new TrabajoDTO(trabajoDAO.findById(id).orElse(null));
+		
+	}
+	@Transactional
+	public void deleteTrabajoById(Integer id){
+		
+		
+		trabajoDAO.deleteById(id);
 		
 	}
 

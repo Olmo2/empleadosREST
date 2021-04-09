@@ -7,6 +7,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,6 +74,15 @@ public class Rutas {
 	public DepartamentoDTO departamento(@PathVariable Integer id) {
 
 		return service.findDeptById(id);
+
+	}
+
+	@DeleteMapping("/departamento/delete/{id}")
+	public String departamentoDelete(@PathVariable Integer id) {
+
+		 service.deleteDeptById(id);
+		 
+		 return "Exito";
 
 	}
 
@@ -158,6 +168,15 @@ public class Rutas {
 		return service.findDirById(id);
 
 	}
+	
+	@DeleteMapping("/direccion/delete/{id}")
+	public String direccionDelete(@PathVariable Integer id) {
+
+		 service.deleteDirById(id);
+		 
+		 return "Exito";
+
+	}
 
 //	@GetMapping("/direccion/{id}")
 //	public ModelAndView direccion(@PathVariable Integer id) {
@@ -205,6 +224,15 @@ public class Rutas {
 	public PaisDTO pais(@PathVariable String id) {
 
 		return service.findPaisById(id);
+
+	}
+	
+	@DeleteMapping("/pais/delete/{id}")
+	public String paisDelete(@PathVariable String id) {
+
+		 service.deletePaisById(id);
+		 
+		 return "Exito";
 
 	}
 //	@GetMapping("/pais/{id}")
@@ -256,6 +284,16 @@ public class Rutas {
 		return service.findTrabajadorById(id);
 
 	}
+	
+	@DeleteMapping("/trabajador/delete/{id}")
+	public String trabajadorDelete(@PathVariable Integer id) {
+
+		 service.deleteTrabajadorById(id);
+		 
+		 return "Exito";
+
+	}
+	
 //	@GetMapping("/trabajador/{id}")
 //	public ModelAndView trabajador(@PathVariable Integer id) {
 //
@@ -299,6 +337,15 @@ public class Rutas {
 	public TrabajoDTO trabajo(@PathVariable Integer id) {
 
 		return service.findTrabajoById(id);
+
+	}
+	
+	@DeleteMapping("/trabajo/delete/{id}")
+	public String trabajoDelete(@PathVariable Integer id) {
+
+		 service.deleteTrabajoById(id);
+		 
+		 return "Exito";
 
 	}
 	
